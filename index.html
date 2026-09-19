@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bunker 11 - Solo</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Import Three.js via ES Modules CDN -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com"
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Heads Up Display (HUD) -->
+    <div id="hud">
+        <div class="hud-panel">
+            HEALTH: <div id="health-bar-container"><div id="health-bar"></div></div>
+        </div>
+        <div class="hud-panel">SCORE: <span id="score-val">0</span></div>
+        <div class="hud-panel" id="scrap-panel">SCRAP: <span id="scrap-val">5</span></div>
+    </div>
+
+    <!-- Inventory Tracker Panel -->
+    <div id="inventory-overlay">
+        <strong>STRUCTURE COUNTS:</strong><br>
+        DOOR: <span id="count-door">0</span><br>
+        HATCH: <span id="count-hatch">0</span><br>
+        LADDER: <span id="count-ladder">0</span><br>
+        SCAFFOLD: <span id="count-scaffold">0</span>
+    </div>
+
+    <!-- Interface Context & Inputs -->
+    <div id="controls-ui">
+        <div class="mode-selector">MODE: BUILD CRAFT SAVE LOAD</div>
+        <div class="action-row">
+            <button class="btn" id="btn-jump">Jump</button>
+            <button class="btn" id="btn-fire" class="fire-accent">Fire</button>
+            <button class="btn" id="btn-radiation" class="rad-accent">Take Rads</button>
+        </div>
+    </div>
+
+    <!-- Game Over Layout Viewport -->
+    <div id="game-over-screen">
+        <h1>GAME OVER</h1>
+        <p>YOU DIED FROM RADIATION AND MUTANTS</p>
+        <button class="btn" id="btn-respawn">RESPAWN</button>
+    </div>
+
+    <!-- 3D Canvas Target Area -->
+    <div id="canvas-container"></div>
+
+    <!-- Core Module Execution Script -->
+    <script type="module" src="game.js"></script>
+</body>
+</html>

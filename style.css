@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #050508;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 3D WebGL Target Viewport Container */
+#canvas-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Heads Up Display Layout Base */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    color: #00ffaa;
+    text-shadow: 0 0 8px rgba(0,255,170,0.6);
+    font-size: 1.2rem;
+    font-weight: bold;
+    pointer-events: none;
+}
+.hud-panel {
+    background: rgba(10, 15, 25, 0.7);
+    padding: 10px 20px;
+    border: 1px solid #00ffaa;
+    border-radius: 4px;
+}
+#scrap-panel {
+    color: #ffaa00; 
+    border-color: #ffaa00;
+}
+#health-bar-container {
+    width: 150px;
+    height: 12px;
+    border: 1px solid #ff3333;
+    background: #200;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+#health-bar {
+    width: 100%;
+    height: 100%;
+    background: #ff3333;
+    box-shadow: 0 0 8px #ff3333;
+    transition: width 0.3s;
+}
+
+/* Sidebar Structural Inventory Count Tracking Overlay */
+#inventory-overlay {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    z-index: 10;
+    color: #88aaff;
+    background: rgba(10,15,25,0.7);
+    border: 1px solid #4466aa;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Central Bottom Controller Actions Input Panels */
+#controls-ui {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.mode-selector {
+    background: rgba(10, 15, 25, 0.85);
+    border: 1px solid #00aaff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #00aaff;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+.action-row {
+    display: flex;
+    gap: 10px;
+}
+.btn {
+    background: #111a24;
+    border: 1px solid #00ffaa;
+    color: #00ffaa;
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px rgba(0,255,170,0.2);
+    transition: all 0.2s;
+}
+.btn:hover {
+    background: #00ffaa;
+    color: #000;
+    box-shadow: 0 0 15px #00ffaa;
+}
+.btn:active {
+    transform: scale(0.95);
+}
+#btn-fire { border-color: #ff3333; color: #ff3333; }
+#btn-radiation { border-color: #ffaa00; color: #ffaa00; }
+
+/* Radiation Game Over Overlay Backdrop Panel Layout */
+#game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 0, 0, 0.9);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ff3333;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+#game-over-screen.active {
+    visibility: visible;
+    opacity: 1;
+}
+#game-over-screen h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px #ff0000;
+    letter-spacing: 3px;
+}
+#game-over-screen p {
+    font-size: 1.2rem;
+    color: #ffaaaa;
+    margin-bottom: 30px;
+}
+#btn-respawn { border-color: #ff3333; color: #ff3333; }
